@@ -1,0 +1,7 @@
+.timer {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-family: var(--font-mono);
+    font-weight: bold;
+}
+

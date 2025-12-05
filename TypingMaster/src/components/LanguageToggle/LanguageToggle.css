@@ -1,0 +1,29 @@
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-sub);
+}
+
+.lang-btn {
+    color: var(--text-sub);
+    font-weight: 500;
+    transition: color 0.2s;
+    padding: 0.2rem;
+}
+
+.lang-btn:hover {
+    color: var(--text-main);
+}
+
+.lang-btn.active {
+    color: var(--primary-color);
+}
+
+.lang-sep {
+    color: var(--text-sub);
+    opacity: 0.5;
+}
+

@@ -1,0 +1,31 @@
+.header {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-main);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header__icon {
+    color: var(--primary-color);
+}
+
+.header__btn {
+    color: var(--text-sub);
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.header__btn:hover {
+    color: var(--text-main);
+}
+

@@ -1,0 +1,34 @@
+:root {
+  /* Dark Theme (Default) */
+  --bg-primary: #323437;
+  --bg-secondary: #2c2e31;
+  --text-main: #d1d0c5;
+  --text-sub: #646669;
+  --primary-color: #e2b714;
+  --error-color: #ca4754;
+  --correct-color: #d1d0c5;
+  --caret-color: #e2b714;
+  
+  /* Layout */
+  --container-width: 1000px;
+  --header-height: 80px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  
+  /* Font */
+  --font-mono: 'Roboto Mono', 'Fira Code', monospace;
+  --font-sans: 'Roboto', system-ui, sans-serif;
+}
+
+[data-theme='light'] {
+  --bg-primary: #f2f2f2;
+  --bg-secondary: #e6e6e6;
+  --text-main: #333333;
+  --text-sub: #999999;
+  --primary-color: #0d74e7;
+  --error-color: #ff3636;
+  --correct-color: #333333;
+  --caret-color: #0d74e7;
+}
+
+

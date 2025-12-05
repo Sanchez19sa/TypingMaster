@@ -1,0 +1,39 @@
+.mode-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--bg-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.mode-selector__group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.mode-selector__divider {
+    width: 2px;
+    height: 1.5rem;
+    background-color: var(--bg-primary);
+}
+
+.mode-selector__btn {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    transition: color 0.2s;
+}
+
+.mode-selector__btn:hover {
+    color: var(--text-main);
+}
+
+.mode-selector__btn.active {
+    color: var(--primary-color);
+}
+

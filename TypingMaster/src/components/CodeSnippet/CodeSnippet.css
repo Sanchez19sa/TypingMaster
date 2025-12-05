@@ -1,0 +1,8 @@
+.code-snippet-container {
+    background: rgba(0,0,0,0.2);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border-left: 2px solid var(--primary-color);
+    width: 100%;
+}
+
