@@ -1,0 +1,101 @@
+.typing-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.typing-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.typing-area {
+    /* Fix Problem 2: Min Height */
+    min-height: 200px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.typing-box {
+    position: relative;
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-sub);
+    user-select: none;
+    cursor: text;
+    white-space: pre-wrap;
+    width: 100%;
+}
+
+.char {
+    position: relative;
+    margin: 0 1px;
+}
+
+.char.correct {
+    color: var(--text-main);
+}
+
+.char.error {
+    color: var(--error-color);
+    text-decoration: underline;
+}
+
+.cursor {
+    position: absolute;
+    width: 2px;
+    height: 1.5rem;
+    background-color: var(--caret-color);
+    transition: transform 0.1s ease;
+    animation: blink 1s infinite;
+    z-index: 10;
+}
+
+/* Pause blink when moving */
+.cursor.moving {
+    animation: none;
+}
+
+/* Refresh Button */
+.refresh-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    height: 50px; /* fixed height to prevent layout shift */
+}
+
+.refresh-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--text-sub);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+}
+
+.refresh-btn:hover {
+    color: var(--primary-color);
+    background-color: rgba(0,0,0,0.1);
+    transform: rotate(180deg);
+}
+
+.refresh-btn:active {
+    transform: rotate(180deg) scale(0.95);
+}
+
+[data-theme='light'] .refresh-btn:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+

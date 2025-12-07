@@ -1,0 +1,26 @@
+{
+  "title": "TypeMaster",
+  "modes": {
+    "text": "Texto",
+    "code": "Código"
+  },
+  "difficulty": {
+    "easy": "Fácil",
+    "medium": "Medio",
+    "hard": "Difícil"
+  },
+  "stats": {
+    "wpm": "PPM",
+    "acc": "Precisión",
+    "time": "Tiempo",
+    "chars": "Caracteres",
+    "words": "palabras"
+  },
+  "results": {
+    "title": "Resultado"
+  },
+  "footer": {
+    "hint": "Presiona cualquier tecla para comenzar"
+  }
+}
+

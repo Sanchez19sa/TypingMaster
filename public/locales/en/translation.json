@@ -1,0 +1,26 @@
+{
+  "title": "TypeMaster",
+  "modes": {
+    "text": "Text",
+    "code": "Code"
+  },
+  "difficulty": {
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard"
+  },
+  "stats": {
+    "wpm": "WPM",
+    "acc": "Accuracy",
+    "time": "Time",
+    "chars": "Characters",
+    "words": "words"
+  },
+  "results": {
+    "title": "Test Result"
+  },
+  "footer": {
+    "hint": "Press any key to start typing"
+  }
+}
+
