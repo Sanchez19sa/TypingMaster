@@ -20,5 +20,3 @@ Una aplicación web moderna para practicar mecanografía con soporte para múlti
 - **State Management:** React Hooks (useState, useCallback, useRef)
 - **i18n:** Sistema de traducciones personalizado
 - **Build Tool:** Vite
-
-- 
