@@ -1,34 +1,30 @@
 :root {
-  /* Dark Theme (Default) */
-  --bg-primary: #323437;
-  --bg-secondary: #2c2e31;
-  --text-main: #d1d0c5;
-  --text-sub: #646669;
-  --primary-color: #e2b714;
-  --error-color: #ca4754;
-  --correct-color: #d1d0c5;
-  --caret-color: #e2b714;
+  /* Dark Theme - SIN CAMBIOS */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #0f0f0f;
+  --text-main: #d4d4d4;
+  --text-sub: #646464;
+  --primary-color: #06b6d4;
+  --error-color: #ef4444;
+  --correct-color: #d4d4d4;
+  --caret-color: #06b6d4;
   
-  /* Layout */
   --container-width: 1000px;
   --header-height: 80px;
   --radius-sm: 4px;
   --radius-md: 8px;
-  
-  /* Font */
   --font-mono: 'Roboto Mono', 'Fira Code', monospace;
   --font-sans: 'Roboto', system-ui, sans-serif;
 }
 
 [data-theme='light'] {
-  --bg-primary: #f2f2f2;
-  --bg-secondary: #e6e6e6;
-  --text-main: #333333;
-  --text-sub: #999999;
-  --primary-color: #0d74e7;
-  --error-color: #ff3636;
-  --correct-color: #333333;
-  --caret-color: #0d74e7;
+  --bg-primary: #f5f5f5;          /* Gris muy claro */
+  --bg-secondary: #e8e8e8;        /* Gris más marcado */
+  --text-main: #1f1f1f;           /* Negro suave */
+  --text-sub: #707070;
+  --primary-color: #0891b2;       /* Cyan balanceado */
+  --error-color: #e11d48;         /* Rojo más suave */
+  --correct-color: #1f1f1f;
+  --caret-color: #0891b2;
 }
-
 

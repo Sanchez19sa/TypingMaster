@@ -1,7 +1,9 @@
+
 export type TestMode = 'text' | 'code';
 export type Difficulty = 'easy' | 'medium' | 'hard';
 export type TestStatus = 'idle' | 'running' | 'finished';
 export type SupportedLanguage = 'en' | 'es';
+export type CodeLanguage = 'javascript' | 'python' | 'typescript';
 
 export interface TestConfig {
   mode: TestMode;
@@ -16,6 +18,15 @@ export interface CharState {
   status: 'pending' | 'correct' | 'incorrect' | 'extra';
 }
 
+export interface ChartPoint {
+    time: number;
+    wpm: number;
+    raw: number;
+    error: number;
+    wordNumber?: number;
+    totalWords?: number;
+}
+
 export interface TestStats {
   wpm: number;
   rawWpm: number;
@@ -25,7 +36,8 @@ export interface TestStats {
   incorrectChars: number;
   missedChars: number;
   extraChars: number;
-  chartData: { time: number; wpm: number }[];
+  correctWords: number;
+  incorrectWords: number;
+  chartData: ChartPoint[];
 }
-
 

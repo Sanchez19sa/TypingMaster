@@ -11,6 +11,14 @@
     justify-content: space-between;
     font-size: 1.5rem;
     color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.typing-area {
+    /* Fix Problem 2: Min Height */
+    min-height: 200px;
+    display: flex;
+    align-items: flex-start;
 }
 
 .typing-box {
@@ -22,7 +30,7 @@
     user-select: none;
     cursor: text;
     white-space: pre-wrap;
-    min-height: 150px;
+    width: 100%;
 }
 
 .char {
@@ -54,4 +62,40 @@
     animation: none;
 }
 
+/* Refresh Button */
+.refresh-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    height: 50px; /* fixed height to prevent layout shift */
+}
+
+.refresh-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--text-sub);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+}
+
+.refresh-btn:hover {
+    color: var(--primary-color);
+    background-color: rgba(0,0,0,0.1);
+    transform: rotate(180deg);
+}
+
+.refresh-btn:active {
+    transform: rotate(180deg) scale(0.95);
+}
+
+[data-theme='light'] .refresh-btn:hover {
+    background-color: rgba(0,0,0,0.05);
+}
 

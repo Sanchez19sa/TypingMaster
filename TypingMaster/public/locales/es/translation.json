@@ -13,7 +13,8 @@
     "wpm": "PPM",
     "acc": "Precisión",
     "time": "Tiempo",
-    "chars": "Caracteres"
+    "chars": "Caracteres",
+    "words": "palabras"
   },
   "results": {
     "title": "Resultado"

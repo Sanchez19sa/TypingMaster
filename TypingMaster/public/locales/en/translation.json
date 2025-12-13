@@ -13,7 +13,8 @@
     "wpm": "WPM",
     "acc": "Accuracy",
     "time": "Time",
-    "chars": "Characters"
+    "chars": "Characters",
+    "words": "words"
   },
   "results": {
     "title": "Test Result"

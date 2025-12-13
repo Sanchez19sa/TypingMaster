@@ -4,6 +4,13 @@ export const useTimer = (initialDuration: number, onFinish: () => void) => {
   const [timeLeft, setTimeLeft] = useState(initialDuration);
   const [isRunning, setIsRunning] = useState(false);
   const intervalRef = useRef<number | null>(null);
+  
+  // Use a ref for the callback to prevent startTimer from changing when onFinish changes
+  const onFinishRef = useRef(onFinish);
+  
+  useEffect(() => {
+    onFinishRef.current = onFinish;
+  }, [onFinish]);
 
   const startTimer = useCallback(() => {
     if (isRunning) return;
@@ -13,13 +20,19 @@ export const useTimer = (initialDuration: number, onFinish: () => void) => {
         if (prev <= 1) {
           if (intervalRef.current) clearInterval(intervalRef.current);
           setIsRunning(false);
-          onFinish();
+          // Call the latest callback
+          if (onFinishRef.current) onFinishRef.current();
           return 0;
         }
         return prev - 1;
       });
     }, 1000);
-  }, [isRunning, onFinish]);
+  }, [isRunning]);
+
+  const stopTimer = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    setIsRunning(false);
+  }, []);
 
   const resetTimer = useCallback((duration: number) => {
     if (intervalRef.current) clearInterval(intervalRef.current);
@@ -33,6 +46,6 @@ export const useTimer = (initialDuration: number, onFinish: () => void) => {
     };
   }, []);
 
-  return { timeLeft, isRunning, startTimer, resetTimer };
+  return { timeLeft, isRunning, startTimer, stopTimer, resetTimer };
 };
 
