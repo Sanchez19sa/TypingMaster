@@ -14,9 +14,11 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; 
   align-items: center;
   gap: 2rem;
+  width: 100%;
+  padding-top: 1rem;
 }
 
 /* Animations */
@@ -42,4 +44,15 @@
   pointer-events: none;
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0 1rem;
+  }
+
+  .main-content {
+    gap: 1.5rem;
+    padding-top: 2rem;
+  }
+}
 

@@ -2,16 +2,19 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-right: 1rem;
     font-size: 0.9rem;
     color: var(--text-sub);
+    font-weight: bold;
+    user-select: none;
 }
 
 .lang-btn {
     color: var(--text-sub);
     font-weight: 500;
     transition: color 0.2s;
-    padding: 0.2rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
 }
 
 .lang-btn:hover {
@@ -25,5 +28,6 @@
 .lang-sep {
     color: var(--text-sub);
     opacity: 0.5;
+    font-size: 0.8rem;
 }
 

@@ -22,10 +22,8 @@ const TypingBox: React.FC<TypingBoxProps> = ({
 }) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
-    // Fix Problem 1: Global "Press any key to start"
     useEffect(() => {
         const handleGlobalKeyDown = (e: KeyboardEvent) => {
-            // Ignore if modifier keys are pressed (shortcuts)
             if (e.ctrlKey || e.altKey || e.metaKey) return;
 
             // If input is not focused, focus it
@@ -38,7 +36,6 @@ const TypingBox: React.FC<TypingBoxProps> = ({
         return () => window.removeEventListener('keydown', handleGlobalKeyDown);
     }, []);
 
-    // Keep focus logic (existing)
     useEffect(() => {
         if (isFocused && inputRef.current) {
             inputRef.current.focus();
@@ -54,7 +51,6 @@ const TypingBox: React.FC<TypingBoxProps> = ({
         e.target.value = '';
     };
 
-    // Handle special keys like Enter captured by the input
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             e.preventDefault();
@@ -66,7 +62,6 @@ const TypingBox: React.FC<TypingBoxProps> = ({
         inputRef.current?.focus();
     };
 
-    // Show refresh button only when idle (no input yet)
     const showRefresh = userInput.length === 0;
 
     return (
@@ -84,18 +79,20 @@ const TypingBox: React.FC<TypingBoxProps> = ({
                 )}
             </div>
 
-            {showRefresh && onGenerateNew && (
-                <div className="refresh-container fade-in">
+            {/* Changed conditional rendering to class-based visibility to reserve space */}
+            <div className={`refresh-container ${!showRefresh ? 'hidden' : ''}`}>
+                {onGenerateNew && (
                     <button 
                         className="refresh-btn" 
                         onClick={onGenerateNew} 
                         title="Generate new text"
                         aria-label="Generate new text"
+                        tabIndex={!showRefresh ? -1 : 0}
                     >
                         🔄
                     </button>
-                </div>
-            )}
+                )}
+            </div>
 
             <input 
                 ref={inputRef}
@@ -113,4 +110,3 @@ const TypingBox: React.FC<TypingBoxProps> = ({
 };
 
 export default TypingBox;
-

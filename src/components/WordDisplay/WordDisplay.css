@@ -36,3 +36,12 @@
     opacity: 0;
 }
 
+@media (max-width: 768px) {
+    .word-display {
+        font-size: 1.2rem;
+    }
+    .cursor {
+        height: 1.2rem;
+    }
+}
+

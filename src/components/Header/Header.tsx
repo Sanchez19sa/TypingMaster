@@ -19,7 +19,12 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, currentTheme }) => {
             </div>
             <div className="header__controls">
                 <LanguageToggle />
-                <button className="header__btn" onClick={toggleTheme}>
+                <button 
+                    className="header__btn" 
+                    onClick={toggleTheme}
+                    aria-label="Toggle theme"
+                    title={currentTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                >
                     {currentTheme === 'dark' ? '☀' : '☾'}
                 </button>
             </div>

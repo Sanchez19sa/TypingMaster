@@ -18,8 +18,8 @@ const App: React.FC = () => {
     
     // Test Config State
     const [mode, setMode] = React.useState<TestMode>('text');
-    const [difficulty, setDifficulty] = React.useState<Difficulty>('medium');
-    const [duration, setDuration] = React.useState(30);
+    const [difficulty, setDifficulty] = React.useState<Difficulty>('easy');
+    const [duration, setDuration] = React.useState(15);
     const [codeLanguage, setCodeLanguage] = React.useState<CodeLanguage>('javascript');
 
     // Apply Theme
@@ -45,26 +45,20 @@ const App: React.FC = () => {
         codeLanguage 
     });
 
-    // Track previous language to prevent loops
     const prevLangRef = useRef(i18n.language);
 
-    // Problem 3: Handle language change manually
     useEffect(() => {
-        // Only run if language ACTUALLY changed
         if (prevLangRef.current !== i18n.language) {
             prevLangRef.current = i18n.language;
-            
-            // If we are finished, we do nothing (ResultsCard handles translation)
-            // If we are idle or running, we reset but keep the index/text ID if possible
+
             if (status !== 'finished') {
                 resetTest(true); 
             }
         }
     }, [i18n.language, status, resetTest]);
 
-    // Handle Config Changes explicitly here to avoid loops in the hook
+    
     useEffect(() => {
-        // Reset completely (new text) when mode/difficulty/duration changes
         resetTest(false);
     }, [mode, difficulty, duration, codeLanguage]);
 

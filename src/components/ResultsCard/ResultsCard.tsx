@@ -15,28 +15,22 @@ const ResultsCard: React.FC<ResultsCardProps> = ({ stats, onRetry }) => {
 
     const translations = {
       en: {
-        wpm: 'wpm',
-        accuracy: 'acc',
+        wpm: 'WPM',
+        accuracy: 'Accuracy',
         testType: 'test type',
-        raw: 'raw',
-        characters: 'characters',
-        words: 'words',
-        consistency: 'consistency',
-        time: 'time',
-        correct: 'correct',
-        incorrect: 'incorrect'
+        consistency: 'Consistency',
+        time: 'Time',
+        correct: 'Correct Characters',
+        incorrect: 'Incorrect Characters',
       },
       es: {
-        wpm: 'ppm',
-        accuracy: 'precisión',
-        testType: 'tipo de prueba',
-        raw: 'bruto',
-        characters: 'caracteres',
-        words: 'palabras',
-        consistency: 'consistencia',
-        time: 'tiempo',
-        correct: 'correctas',
-        incorrect: 'incorrectas'
+        wpm: 'PPM',
+        accuracy: 'Precisión',
+        testType: 'Tipo',
+        consistency: 'Consistencia',
+        time: 'Tiempo',
+        correct: 'Caracteres correctos',
+        incorrect: 'Caracteres incorrectos',
       }
     };
 
@@ -82,26 +76,17 @@ const ResultsCard: React.FC<ResultsCardProps> = ({ stats, onRetry }) => {
                     <div className="stat-label">{tLabels.testType}</div>
                     <div className="stat-value text-sub">{tLabels.time} {stats.chartData.length}s</div> 
                 </div>
+                
                 <div className="stat-group small">
-                    <div className="stat-label">{tLabels.raw}</div>
-                    <div className="stat-value primary">{stats.rawWpm}</div>
+                    <div className="stat-label">{tLabels.correct}</div>
+                    <div className="stat-value text-main">{stats.correctChars}</div>
                 </div>
+
                 <div className="stat-group small">
-                    <div className="stat-label">{tLabels.characters}</div>
-                    <div className="stat-value" title="correct/incorrect/missing/extra">
-                        <span className="text-main">{stats.correctChars}</span>/
-                        <span className="error">{stats.incorrectChars}</span>/
-                        <span className="text-sub">0</span>/
-                        <span className="text-sub">0</span>
-                    </div>
+                    <div className="stat-label">{tLabels.incorrect}</div>
+                    <div className="stat-value error">{stats.incorrectChars}</div>
                 </div>
-                 <div className="stat-group small">
-                    <div className="stat-label">{tLabels.words}</div>
-                    <div className="stat-value" title={`${tLabels.correct}/${tLabels.incorrect}`}>
-                        <span className="text-main">{stats.correctWords}</span>/
-                        <span className="error">{stats.incorrectWords}</span>
-                    </div>
-                </div>
+
                 <div className="stat-group small">
                     <div className="stat-label">{tLabels.consistency}</div>
                     <div className="stat-value">{consistency}%</div>
@@ -118,4 +103,3 @@ const ResultsCard: React.FC<ResultsCardProps> = ({ stats, onRetry }) => {
 };
 
 export default ResultsCard;
-

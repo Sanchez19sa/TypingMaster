@@ -68,6 +68,14 @@
     justify-content: center;
     margin-top: 0.5rem;
     height: 50px; /* fixed height to prevent layout shift */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: auto;
+}
+
+.refresh-container.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .refresh-btn {
@@ -97,5 +105,11 @@
 
 [data-theme='light'] .refresh-btn:hover {
     background-color: rgba(0,0,0,0.05);
+}
+
+@media (max-width: 768px) {
+    .typing-header {
+        font-size: 1.2rem;
+    }
 }
 

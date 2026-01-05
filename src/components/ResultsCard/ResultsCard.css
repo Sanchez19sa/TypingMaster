@@ -3,7 +3,8 @@
     max-width: 1000px;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
 .results-header {
@@ -37,16 +38,16 @@
 
 .chart-wrapper {
     width: 100%;
-    height: 300px;
+    height: 250px;
     position: relative;
-    /* Optional: add a subtle background or border if desired */
+    min-width: 0;
 }
 
 .results-details {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding-top: 1rem;
+    padding-top: 0;
 }
 
 .stat-group.small .stat-label {
@@ -58,12 +59,14 @@
 .stat-group.small .stat-value {
     font-size: 1.5rem;
     color: var(--text-main);
+    white-space: nowrap;
 }
 
 .results-actions {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    align-items: center;
+    margin-top: 0;
 }
 
 .action-btn {
@@ -87,3 +90,44 @@
     color: var(--primary-color);
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .results-container {
+        gap: 1.5rem;
+    }
+
+    .results-header {
+        justify-content: space-around;
+        gap: 1rem;
+    }
+
+    .stat-group.big .stat-label {
+        font-size: 1.2rem;
+    }
+
+    .stat-group.big .stat-value {
+        font-size: 2.8rem;
+    }
+
+    .chart-wrapper {
+        height: 220px;
+    }
+
+    .results-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem 1rem;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .stat-group.small {
+        align-items: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .stat-group.big .stat-value {
+        font-size: 2.2rem;
+    }
+}
