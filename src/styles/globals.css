@@ -1,13 +1,6 @@
 @import './variables.css';
 @import './reset.css';
 
-html, body {
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-  overscroll-behavior: none;
-}
-
 .app-container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -43,7 +36,6 @@ html, body {
   animation: fadeIn 0.3s ease-out forwards;
 }
 
-/* Hidden input for typing capture */
 .typing-input {
   position: absolute;
   opacity: 0;
