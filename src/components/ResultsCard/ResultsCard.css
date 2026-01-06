@@ -43,6 +43,13 @@
     min-width: 0;
 }
 
+.chart-wrapper :focus,
+.chart-wrapper path:focus,
+.chart-wrapper g:focus,
+.recharts-wrapper:focus {
+    outline: none !important;
+}
+
 .results-details {
     display: flex;
     justify-content: space-between;
