@@ -15,8 +15,6 @@ interface ChartProps {
   data: ChartPoint[];
   averageWpm: number;
   lang: string;
-  /** Altura fija del chart; evita depender de padres con height: 100% */
-  height?: number;
 }
 
 type Lang = 'en' | 'es';
@@ -97,19 +95,22 @@ function clampPositiveInt(n: number) {
   return Number.isFinite(v) && v > 0 ? v : 0;
 }
 
-const Chart: React.FC<ChartProps> = ({ data, averageWpm, lang, height = 250 }) => {
+const Chart: React.FC<ChartProps> = ({ data, averageWpm, lang }) => {
   const t = (translations as any)[lang] ?? translations.en;
 
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const [width, setWidth] = useState<number>(0);
+  // Track both dimensions
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useLayoutEffect(() => {
     const el = wrapperRef.current;
     if (!el) return;
 
     const measure = () => {
-      const next = clampPositiveInt(el.clientWidth);
-      setWidth(next);
+      setDimensions({
+        width: clampPositiveInt(el.clientWidth),
+        height: clampPositiveInt(el.clientHeight)
+      });
     };
 
     measure();
@@ -120,10 +121,7 @@ const Chart: React.FC<ChartProps> = ({ data, averageWpm, lang, height = 250 }) =
     return () => ro.disconnect();
   }, []);
 
-  const chartWidth = width;
-  const chartHeight = clampPositiveInt(height);
-
-  const canRender = data?.length > 0 && chartWidth > 0 && chartHeight > 0;
+  const canRender = data?.length > 0 && dimensions.width > 0 && dimensions.height > 0;
 
   const errorShape = useCallback((props: any) => {
     const { cx, cy, payload } = props;
@@ -143,7 +141,6 @@ const Chart: React.FC<ChartProps> = ({ data, averageWpm, lang, height = 250 }) =
     );
   }, []);
 
-  // Tooltip component instance estable (evita remounts)
   const tooltipContent = useMemo(() => <CustomTooltip t={t} />, [t]);
 
   return (
@@ -151,16 +148,14 @@ const Chart: React.FC<ChartProps> = ({ data, averageWpm, lang, height = 250 }) =
       ref={wrapperRef}
       style={{
         width: '100%',
-        height: chartHeight,
-        minHeight: chartHeight,
-        // Importante en layouts flex: evita que el item colapse raro
+        height: '100%', // Fill the CSS-defined parent height
         minWidth: 0,
       }}
     >
       {!canRender ? null : (
         <ComposedChart
-          width={chartWidth}
-          height={chartHeight}
+          width={dimensions.width}
+          height={dimensions.height}
           data={data}
           margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
         >
