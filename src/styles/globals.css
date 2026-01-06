@@ -2,11 +2,10 @@
 @import './reset.css';
 
 html, body {
-  /* Strictly prevent scrolling on the body */
   overflow: hidden;
   height: 100%;
   width: 100%;
-  overscroll-behavior: none; /* Prevent pull-to-refresh effects */
+  overscroll-behavior: none;
 }
 
 .app-container {
