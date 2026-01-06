@@ -11,22 +11,44 @@ const WordDisplay: React.FC<WordDisplayProps> = ({ text, userInput, onClick }) =
     const containerRef = useRef<HTMLDivElement>(null);
     const cursorRef = useRef<HTMLSpanElement>(null);
 
-    // Calculate cursor position
     useEffect(() => {
         if (!containerRef.current || !cursorRef.current) return;
+        
         const activeChar = containerRef.current.querySelector('.char.active');
-        const containerRect = containerRef.current.getBoundingClientRect();
-
+        const container = containerRef.current;
+        
         if (activeChar) {
-            const rect = (activeChar as HTMLElement).getBoundingClientRect();
-            cursorRef.current.style.transform = `translate(${rect.left - containerRect.left}px, ${rect.top - containerRect.top}px)`;
+            const el = activeChar as HTMLElement;
+
+            cursorRef.current.style.transform = `translate(${el.offsetLeft}px, ${el.offsetTop}px)`;
             cursorRef.current.style.opacity = '1';
+
+            const cursorTop = el.offsetTop;
+            const cursorHeight = el.offsetHeight;
+            const containerHeight = container.clientHeight;
+            const scrollTop = container.scrollTop;
+            const targetScroll = cursorTop - (containerHeight / 2) + (cursorHeight / 2);
+            const buffer = containerHeight * 0.3;
+            
+            const isBelow = cursorTop > (scrollTop + containerHeight - buffer);
+            const isAbove = cursorTop < (scrollTop + buffer);
+
+            if (isBelow || isAbove) {
+                container.scrollTo({
+                    top: Math.max(0, targetScroll),
+                    behavior: 'smooth'
+                });
+            }
+
         } else if (userInput.length === text.length) {
-            // End of text
-             const lastChar = containerRef.current.lastElementChild;
-             if(lastChar) {
-                const rect = (lastChar as HTMLElement).getBoundingClientRect();
-                 cursorRef.current.style.transform = `translate(${rect.right - containerRect.left}px, ${rect.top - containerRect.top}px)`;
+             const lastChar = containerRef.current.lastElementChild as HTMLElement;
+             if(lastChar && !lastChar.classList.contains('cursor')) {
+                 cursorRef.current.style.transform = `translate(${lastChar.offsetLeft + lastChar.offsetWidth}px, ${lastChar.offsetTop}px)`;
+
+                 container.scrollTo({
+                     top: container.scrollHeight,
+                     behavior: 'smooth'
+                 });
              }
         }
     }, [userInput, text]);
@@ -52,4 +74,3 @@ const WordDisplay: React.FC<WordDisplayProps> = ({ text, userInput, onClick }) =
 };
 
 export default WordDisplay;
-
