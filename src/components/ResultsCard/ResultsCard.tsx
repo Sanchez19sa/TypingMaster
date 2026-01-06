@@ -94,7 +94,7 @@ const ResultsCard: React.FC<ResultsCardProps> = ({ stats, onRetry }) => {
             </div>
 
             <div className="results-actions">
-                <Button variant="icon" onClick={onRetry} autoFocus className="action-btn" title="Restart Test">
+                <Button variant="icon" onClick={onRetry} className="action-btn" title="Restart Test">
                     ⟳
                 </Button>
             </div>
