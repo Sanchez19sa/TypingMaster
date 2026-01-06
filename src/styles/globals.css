@@ -1,6 +1,14 @@
 @import './variables.css';
 @import './reset.css';
 
+html, body {
+  /* Strictly prevent scrolling on the body */
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  overscroll-behavior: none; /* Prevent pull-to-refresh effects */
+}
+
 .app-container {
   max-width: var(--container-width);
   margin: 0 auto;
