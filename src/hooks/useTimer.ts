@@ -5,7 +5,6 @@ export const useTimer = (initialDuration: number, onFinish: () => void) => {
   const [isRunning, setIsRunning] = useState(false);
   const intervalRef = useRef<number | null>(null);
   
-  // Use a ref for the callback to prevent startTimer from changing when onFinish changes
   const onFinishRef = useRef(onFinish);
   
   useEffect(() => {
@@ -20,7 +19,6 @@ export const useTimer = (initialDuration: number, onFinish: () => void) => {
         if (prev <= 1) {
           if (intervalRef.current) clearInterval(intervalRef.current);
           setIsRunning(false);
-          // Call the latest callback
           if (onFinishRef.current) onFinishRef.current();
           return 0;
         }

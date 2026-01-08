@@ -72,14 +72,13 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .mode-selector {
-        /* Drastically reduce vertical space on mobile */
         padding: 0.5rem;
         margin-bottom: 0.5rem;
-        border-bottom: none; /* Remove border to make it look cleaner compacted */
+        border-bottom: none; 
     }
 
     .mode-selector__btn {
-        font-size: 0.8rem; /* Slightly smaller text */
+        font-size: 0.8rem; 
         padding: 0.2rem 0.5rem;
     }
 }

@@ -148,7 +148,7 @@ const Chart: React.FC<ChartProps> = ({ data, averageWpm, lang }) => {
       ref={wrapperRef}
       style={{
         width: '100%',
-        height: '100%', // Fill the CSS-defined parent height
+        height: '100%',
         minWidth: 0,
       }}
     >

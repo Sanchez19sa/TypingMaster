@@ -32,7 +32,7 @@
 .header__controls {
     display: flex;
     align-items: center;
-    gap: 1rem; /* Consistent spacing between Lang toggle and Theme btn */
+    gap: 1rem; 
     flex-shrink: 0;
 }
 
@@ -63,7 +63,7 @@
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
     .header {
-        height: 60px; /* Slightly tighter header on mobile */
+        height: 60px;
     }
 
     .header__logo {
@@ -71,11 +71,11 @@
     }
 
     .header__logo h1 {
-        font-size: 1.4rem; /* Smaller title */
+        font-size: 1.4rem; 
     }
 
     .header__icon {
-        font-size: 1.6rem; /* Smaller icon */
+        font-size: 1.6rem; 
     }
 
     .header__controls {

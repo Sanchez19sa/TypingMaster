@@ -26,7 +26,6 @@ const TypingBox: React.FC<TypingBoxProps> = ({
         const handleGlobalKeyDown = (e: KeyboardEvent) => {
             if (e.ctrlKey || e.altKey || e.metaKey) return;
 
-            // If input is not focused, focus it
             if (document.activeElement !== inputRef.current) {
                 inputRef.current?.focus();
             }
@@ -79,7 +78,6 @@ const TypingBox: React.FC<TypingBoxProps> = ({
                 )}
             </div>
 
-            {/* Changed conditional rendering to class-based visibility to reserve space */}
             <div className={`refresh-container ${!showRefresh ? 'hidden' : ''}`}>
                 {onGenerateNew && (
                     <button 

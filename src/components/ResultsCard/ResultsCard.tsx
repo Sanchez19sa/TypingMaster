@@ -34,7 +34,6 @@ const ResultsCard: React.FC<ResultsCardProps> = ({ stats, onRetry }) => {
       }
     };
 
-    // Get current language labels (fallback to en)
     const tLabels = translations[i18n.language as 'en' | 'es'] || translations.en;
 
     // Calculate consistency (Coefficient of Variation of WPM)
@@ -47,8 +46,7 @@ const ResultsCard: React.FC<ResultsCardProps> = ({ stats, onRetry }) => {
         const squareDiffs = wpms.map(value => Math.pow(value - mean, 2));
         const avgSquareDiff = squareDiffs.reduce((a, b) => a + b, 0) / squareDiffs.length;
         const stdDev = Math.sqrt(avgSquareDiff);
-        
-        // Consistency is inverse of variance (roughly) mapped to %
+
         const cv = stdDev / mean;
         const cons = 100 - (cv * 100);
         return Math.max(0, Math.min(100, Math.round(cons)));

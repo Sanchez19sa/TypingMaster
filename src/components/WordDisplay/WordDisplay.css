@@ -55,7 +55,7 @@
     width: 2px;
     height: 1.5rem;
     background-color: var(--caret-color);
-    transition: transform 0.1s ease; /* Smoother, faster transition */
+    transition: transform 0.1s ease; 
     animation: blink 1s infinite;
     z-index: 10;
     opacity: 0;

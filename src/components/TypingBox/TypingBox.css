@@ -15,7 +15,6 @@
 }
 
 .typing-area {
-    /* Fix Problem 2: Min Height */
     min-height: 200px;
     display: flex;
     align-items: flex-start;
@@ -57,17 +56,15 @@
     z-index: 10;
 }
 
-/* Pause blink when moving */
 .cursor.moving {
     animation: none;
 }
 
-/* Refresh Button */
 .refresh-container {
     display: flex;
     justify-content: center;
     margin-top: 0.5rem;
-    height: 50px; /* fixed height to prevent layout shift */
+    height: 50px; 
     opacity: 1;
     transition: opacity 0.3s ease;
     pointer-events: auto;
